@@ -17,10 +17,9 @@ Features:
 Usage:
 ---
 
-From command-line:
-
 * python minFTP.py -h "hostname" -u "username" -p "password"
 * python minFTP.py --host "hostname" --user "username" --pass "password"
+
 
 License:
 ---
