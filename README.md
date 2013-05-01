@@ -2,7 +2,7 @@
 
 A minimalistic terminal-based FTP client
 
-![ScreenShot](screenshot.jpg)
+![ScreenShot](https://github.com/gabriele-salvatori/minFTP/blob/master/image.jpg)
 
 ##Usage:
 ======
