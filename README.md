@@ -1,7 +1,6 @@
 minFTP
 ---
 
-![ScreenShot](image.jpg)
 
 A minimalistic terminal-based FTP client
 
