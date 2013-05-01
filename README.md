@@ -1,8 +1,7 @@
 ##minFTP
+======
 
 A minimalistic terminal-based FTP client
-
-![ScreenShot](image.jpg)
 
 ##Usage:
 ======
@@ -10,5 +9,9 @@ A minimalistic terminal-based FTP client
 From command-line:
 
 > python minFTP.py -h "hostname" -u "username" -p "password"
+
+##Image:
+======
+![ScreenShot](image.jpg)
 
 
