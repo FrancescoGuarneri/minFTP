@@ -1,5 +1,5 @@
 minFTP
-===============================
+---
 
 ![ScreenShot](image.jpg)
 
@@ -15,7 +15,7 @@ Features:
 
 
 Usage:
-======
+---
 
 From command-line:
 
