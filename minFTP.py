@@ -22,6 +22,7 @@ import os
 import sys
 import re
 import socket
+from time import sleep
 from optparse import OptionParser
 from ftplib import FTP
 
@@ -76,7 +77,7 @@ class minFTP:
     new_dir = self.ftp.cwd(dir_)
     show = self.ftp.pwd()
     print "Currently you are in %s \n" % (show)
-
+  
 
   def show_commands( self ):
 
@@ -90,8 +91,6 @@ class minFTP:
     print "rename   : Rename a file/folder"
     print "delete   : Delete a file"
     print "quit     : Quit\n"
-
-
   
 
   def rename ( self ):
@@ -106,12 +105,13 @@ class minFTP:
 
     file_ = raw_input('File: ')
     self.ftp.delete(file_)
- 
+  
 
   def mkdir ( self ):
 
     path = raw_input('Insert folder name: ')
     self.ftp.mkd(path)
+  
 
   def rmdir ( self ):
 
@@ -122,17 +122,36 @@ class minFTP:
   def download ( self ):
 
     filename = raw_input('File: ')
+    print "\n"
     file_ = open(filename,'wb')
-    self.ftp.retrbinary('RETR %s' % filename, file_.write)
-    file_.close()
 
+    for i in range(21):
+
+      sys.stdout.write('\r')
+      self.ftp.retrbinary('RETR %s' % filename, file_.write)
+      sys.stdout.write("[%-20s] %d%%" % ('='*i, 5*i))
+      sys.stdout.flush()
+      sleep(0.25)
+    
+    print "\n"
+    file_.close()
+  
 
   def upload ( self ):
 
-    path = raw_input('Path: ')
+    path = raw_input('Local Directory: ')
     filename = raw_input('Filename: ')
+    print "\n"
     file_ = os.path.join(path,filename)
-    self.ftp.storbinary('STOR %s' % filename, open(file_, 'rb'))
+
+    for i in range(21):
+      sys.stdout.write('\r')
+      self.ftp.storbinary('STOR %s' % filename, open(file_, 'rb'))
+      sys.stdout.write("[%-20s] %d%%" % ('='*i, 5*i))
+      sys.stdout.flush()
+      sleep(0.25)
+
+    print "\n"
   
 
   def commandline( self ):
@@ -186,7 +205,3 @@ if __name__ == '__main__':
   ### COMM. LINE ###
   object_.commandline()
   ###           ###
-
-
-
-
